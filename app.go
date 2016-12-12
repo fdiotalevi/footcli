@@ -6,6 +6,7 @@ import  (
         "io"
 	"strings"
         "os"
+	"flag"
         "golang.org/x/net/html")
 
 
@@ -14,11 +15,26 @@ type Game struct {
 }
 
 var games []Game
+var schedules map[string]string
 var currentDate string
 
 func main() {
   games = make([]Game, 0)
-  const mainUrl = "http://www.footballonuktv.com/"
+  schedules = make(map[string]string)
+  schedules["uk"] = "http://www.footballonuktv.com/"
+  schedules["it"] = "http://www.calciointv.com/"
+  schedules["es"] = "http://www.futbolenlatele.com/"
+  
+  country := flag.String("c", "uk", "Country: uk, it, es are supported")
+  flag.Parse()
+
+  mainUrl := schedules[*country]
+
+  if mainUrl == "" {
+    fmt.Println("There's no service for TV listing for country " + *country)
+    os.Exit(1)
+  }
+  
   getGames(mainUrl)
   for _, g := range games {
     formatGame(g)
