@@ -4,8 +4,8 @@ Football on the command line
 
 ## Build it
 
-1) Clone the repository
-2) run the ./build script
+- Clone the repository
+- run the ./build script
 
 
 ## Run it
