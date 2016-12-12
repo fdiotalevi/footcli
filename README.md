@@ -28,7 +28,7 @@ shows upcoming football games on Spanish TV
 
 $ footcli -c uk
 
-shows upcominh football games on UK TV (in this case you can omit the -c argument as it is the default behavior)
+shows upcoming football games on UK TV (in this case you can omit the -c argument as it is the default behavior)
 
 ## Getting help
 
