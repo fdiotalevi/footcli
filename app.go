@@ -25,8 +25,18 @@ func main() {
   schedules["it"] = "http://www.calciointv.com/"
   schedules["es"] = "http://www.futbolenlatele.com/"
   
-  country := flag.String("c", "uk", "Country: uk, it, es are supported")
+  country := flag.String("c", "uk", "Country: \"uk\", \"it\", \"es\" are supported")
+  week := flag.String("w", "current", "\"current\" for current week, \"next\" for next week")
   flag.Parse()
+
+  if *week != "current" && *week != "next" {
+    fmt.Printf("The option -w=%s is not valid, will display this week fixtures\n", *week)
+  }
+
+  weekOption := ""
+  if *week == "next" {
+    weekOption = "/index2.php"
+  }
 
   mainUrl := schedules[*country]
 
@@ -35,7 +45,7 @@ func main() {
     os.Exit(1)
   }
   
-  getGames(mainUrl)
+  getGames(mainUrl+weekOption)
   for _, g := range games {
     formatGame(g)
   }
