@@ -1,3 +1,5 @@
 pkg
 footcli
 src
+bin
+*.swp
