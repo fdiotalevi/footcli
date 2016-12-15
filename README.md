@@ -20,12 +20,16 @@ You can optionally specify the country to see different listing (only Uk, Spain 
 
 $ footcli -c it
 
-shows football tv listing it Italy
+shows upcoming football games on Italian TV
 
 $ footcli -c es
 
-shows football tv listing it Spain
+shows upcoming football games on Spanish TV
 
 $ footcli -c uk
 
-shows football tv listing it UK (in this case you can omit the -c argument as it is the default behavior)
+shows upcoming football games on UK TV (in this case you can omit the -c argument as it is the default behavior)
+
+## Getting help
+
+$ footcli -h
